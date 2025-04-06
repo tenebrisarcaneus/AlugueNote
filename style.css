@@ -810,6 +810,22 @@ img {
     color: var(--text-dark);
 }
 
+/* ----- Estilo adicionado para especificações dentro do modal ----- */
+.modal-content .specs-details {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    margin-top: -1rem; /* Ajusta espaço acima se a descrição for curta */
+    margin-bottom: 1.5rem;
+    padding-top: 0.5rem; /* Espaço entre descrição e specs */
+    border-top: 1px dashed var(--border-color); /* Linha separadora */
+}
+.modal-content .specs-details strong {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+/* ----- Fim do estilo adicionado ----- */
+
+
 .modal-prices {
     margin-bottom: 1.8rem;
     padding-left: 1rem; /* Leve indentação */
@@ -988,3 +1004,13 @@ img {
     .modal-img { max-height: 220px; }
     .simple-page-section { padding: 3.5rem 1rem; } /* Padding lateral na página simples */
 }
+
+
+/* === CORREÇÃO POTENCIAL PARA CLIQUE NO BOTÃO 'VER DETALHES' === */
+/* Tenta garantir que o botão esteja em uma camada clicável */
+.notebook-card .details-btn {
+  position: relative; /* Cria um contexto de empilhamento */
+  z-index: 1;        /* Traz o botão para uma camada acima de irmãos não posicionados */
+  /* Nenhuma outra propriedade é alterada */
+}
+/* === FIM DA CORREÇÃO === */
