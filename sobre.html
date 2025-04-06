@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - TecAluga SMM</title>
+    <meta name="description" content="Saiba mais sobre a TecAluga SMM, sua parceira em aluguel de notebooks em São Mateus do Maranhão.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+         <div class="container header-container">
+             <a href="index.html#home" class="logo">TecAluga SMM</a> <nav class="navbar">
+                 <ul class="nav-links">
+                     <li><a href="index.html#home">Início</a></li>
+                     <li><a href="index.html#notebooks">Notebooks</a></li>
+                     <li><a href="index.html#como-funciona">Como Funciona</a></li>
+                     <li><a href="index.html#porque-alugar">Vantagens</a></li>
+                     <li><a href="index.html#contato">Contato</a></li>
+                     <li><a href="sobre.html" class="active">Sobre Nós</a></li> </ul>
+                  <button class="menu-toggle" aria-label="Abrir Menu">
+                     <i class="fas fa-bars"></i>
+                 </button>
+             </nav>
+         </div>
+     </header>
+
+    <main>
+        <section class="simple-page-section">
+            <div class="container">
+                <h1>Sobre a TecAluga SMM</h1>
+                <p>Bem-vindo à TecAluga SMM! Somos sua principal escolha para aluguel de notebooks de qualidade em São Mateus do Maranhão e região. Nascemos da necessidade de oferecer soluções tecnológicas flexíveis e acessíveis para estudantes, profissionais e empresas.</p>
+                <p>Nossa missão é facilitar o acesso à tecnologia, permitindo que nossos clientes tenham sempre à mão o equipamento ideal para seus projetos, trabalhos ou estudos, sem a necessidade de um grande investimento inicial. Trabalhamos com notebooks modernos, revisados e prontos para uso.</p>
+                <p>Acreditamos em um atendimento próximo e personalizado. Estamos localizados em São Mateus do Maranhão e focamos em oferecer um serviço ágil, descomplicado e confiável. Seja para um dia, uma semana ou um mês, conte com a TecAluga SMM para impulsionar sua produtividade.</p>
+                <p><strong>Nossos Valores:</strong></p>
+                <ul>
+                    <li>✓ Flexibilidade</li>
+                    <li>✓ Qualidade</li>
+                    <li>✓ Confiança</li>
+                    <li>✓ Atendimento Local</li>
+                    <li>✓ Custo-Benefício</li>
+                </ul>
+                 <p>Entre em <a href="index.html#contato">contato conosco</a> para saber mais!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-about">
+                <h3>TecAluga SMM</h3>
+                <p>Sua solução em aluguel de notebooks em São Mateus do Maranhão.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank" aria-label="Link para o Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="http://instagram.com/eudavisilva" target="_blank" aria-label="Link para o Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5599981543912?text=Olá! Visitei o site e gostaria de mais informações." target="_blank" aria-label="Link para o WhatsApp"><i class="fab fa-whatsapp"></i></a> </div>
+            </div>
+            <div class="footer-links">
+                <h4>Links Úteis</h4>
+                <ul>
+                     <li><a href="index.html#home">Início</a></li>
+                    <li><a href="index.html#notebooks">Notebooks</a></li>
+                    <li><a href="index.html#porque-alugar">Vantagens</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="termos.html">Termos de Uso</a></li>
+                    <li><a href="privacidade.html">Política de Privacidade</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> TecAluga SMM - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+     <a href="https://wa.me/5598SEUNUMERO?text=Olá! Tenho interesse em alugar um notebook." target="_blank" class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+     <script>
+         // --- Atualizar Ano no Rodapé ---
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+         // --- Menu Mobile Toggle (copie a lógica do script.js se necessário) ---
+         // ... (código do menu toggle) ...
+    </script>
+</body>
+</html>

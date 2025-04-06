@@ -1,0 +1,990 @@
+/* === Variáveis CSS Globais (Nova Paleta e Ajustes) === */
+:root {
+    --primary-color: #0D7377; /* Verde-azulado escuro */
+    --secondary-color: #148F8F; /* Tom mais claro para hover */
+    --accent-color: #F0A500;  /* Dourado/Mostarda */
+    --light-bg-color: #F8F8F8; /* Cinza muito claro */
+    --medium-bg-color: #EAEAEA; /* Cinza um pouco mais escuro */
+    --dark-bg-color: #212121;  /* Quase preto para footer */
+    --text-dark: #323232;   /* Cinza escuro para títulos */
+    --text-medium: #505050; /* Cinza médio para parágrafos */
+    --text-light: #F8F8F8;  /* Texto claro para fundos escuros */
+    --white-color: #FFFFFF;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --border-color: #dcdcdc; /* Cinza claro para bordas sutis */
+
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --box-shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.12);
+    --box-shadow-heavy: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+    --section-padding: 5.5rem 0; /* Um pouco mais de respiro */
+    --transition-speed: 0.3s ease-in-out; /* Suavizado */
+}
+
+/* === Reset Básico e Estilos Globais === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.7;
+    color: var(--text-medium);
+    background-color: var(--white-color); /* Fundo padrão branco */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased; /* Melhora renderização de fontes */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1.2rem; /* Ajuste fino */
+    line-height: 1.3;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 3.2rem); } /* Responsivo */
+h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); text-align: center; margin-bottom: 3rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.15rem; }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover, a:focus {
+    color: var(--secondary-color);
+    outline: 2px solid transparent; /* Remove outline padrão e prepara para focus customizado */
+    outline-offset: 2px;
+}
+/* Estilo de foco visível para acessibilidade */
+a:focus-visible {
+     outline: 2px dashed var(--primary-color);
+}
+
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius-sm); /* Leve arredondamento padrão */
+}
+
+.container {
+    max-width: 1200px; /* Um pouco mais largo */
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Mais espaçamento lateral */
+}
+
+.section-padding {
+    padding: var(--section-padding);
+}
+
+.section-description {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 3.5rem auto;
+    font-size: 1.1rem;
+    color: var(--text-medium);
+}
+
+.bg-light {
+    background-color: var(--light-bg-color); /* Cinza bem claro */
+}
+.bg-medium {
+     background-color: var(--medium-bg-color); /* Cinza um pouco mais escuro */
+}
+
+/* === Botões === */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2rem; /* Levemente maior */
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid transparent; /* Prepara para botões outline */
+    transition: all var(--transition-speed); /* Transição mais completa */
+    text-transform: uppercase;
+    letter-spacing: 0.8px; /* Mais espaçado */
+    box-shadow: var(--box-shadow-light);
+}
+.btn:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+.btn:focus-visible {
+     outline: 2px dashed var(--primary-color);
+     box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.3); /* Efeito halo no focus */
+}
+
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white-color);
+    transform: translateY(-3px); /* Efeito de elevação */
+    box-shadow: var(--box-shadow-medium);
+}
+
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    border-color: var(--accent-color);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    background-color: #d89200; /* Escurece o acento */
+    border-color: #d89200;
+    color: var(--text-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: var(--white-color);
+    border-color: var(--success-color);
+}
+.btn-success:hover, .btn-success:focus {
+    background-color: #218838;
+    border-color: #1e7e34;
+    color: var(--white-color);
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+/* === Cabeçalho e Navegação === */
+.header {
+    background-color: var(--white-color);
+    box-shadow: var(--box-shadow-light);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: box-shadow var(--transition-speed); /* Suaviza sombra ao rolar */
+}
+/* Adicionar sombra mais forte quando rolar (pode precisar de JS, mas a inicial já ajuda) */
+/* body.scrolled .header { box-shadow: var(--box-shadow-medium); } */
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-family: var(--font-primary);
+}
+.logo:hover, .logo:focus {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem; /* Mais espaçamento */
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--text-medium);
+    padding-bottom: 0.5rem; /* Aumenta área de clique */
+    position: relative;
+    font-size: 1.05rem; /* Levemente maior */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Centraliza a linha */
+    transform: translateX(-50%); /* Centraliza a linha */
+    width: 0;
+    height: 2.5px; /* Linha mais grossa */
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed);
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.active /* Adicionar classe 'active' com JS se quiser */ {
+    color: var(--primary-color);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after,
+.nav-links a.active::after {
+     width: 60%; /* Linha não ocupa 100% */
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem; /* Maior para facilitar toque */
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 0.5rem; /* Área de toque */
+}
+
+
+/* === Seção Hero === */
+.hero-section {
+    /* Gradiente com a nova cor primária */
+    background: linear-gradient(rgba(13, 115, 119, 0.8), rgba(20, 143, 143, 0.7)), url('images/hero-background.jpg') no-repeat center center/cover;
+    background-color: var(--primary-color); /* Fallback */
+    color: var(--white-color);
+    padding: clamp(6rem, 15vh, 10rem) 0; /* Padding responsivo */
+    text-align: center;
+    min-height: 75vh; /* Um pouco mais alta */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid var(--primary-color); /* Detalhe de borda */
+}
+
+.hero-content h1 {
+    color: var(--white-color);
+    font-size: clamp(2.8rem, 6vw, 4rem); /* Maior e responsivo */
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4); /* Sombra mais pronunciada */
+}
+
+.hero-content .subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    margin-bottom: 1.8rem;
+    font-weight: 400;
+    color: var(--light-bg-color);
+    opacity: 0.9;
+}
+
+.hero-content p:not(.subtitle) {
+    font-size: 1.15rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content .btn {
+    padding: 1.1rem 2.8rem;
+    font-size: 1.1rem;
+}
+
+/* === Seção de Notebooks === */
+.notebooks-section {
+    background-color: var(--light-bg-color); /* Fundo claro para esta seção */
+}
+
+.notebook-grid {
+    display: grid;
+    /* Ajuste minmax para garantir bom encaixe */
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 2.5rem; /* Mais espaçamento */
+}
+
+.notebook-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-lg); /* Mais arredondado */
+    box-shadow: var(--box-shadow-light);
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color); /* Borda sutil */
+}
+
+.notebook-card:hover {
+    transform: translateY(-8px); /* Eleva mais */
+    box-shadow: var(--box-shadow-heavy);
+}
+
+.notebook-card img {
+    width: 100%;
+    height: 220px; /* Altura ligeiramente maior */
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; /* Acompanha card */
+}
+
+.notebook-card-content {
+    padding: 1.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.notebook-card h3 {
+    margin-bottom: 0.7rem;
+    font-size: 1.35rem;
+    color: var(--text-dark);
+}
+
+.notebook-card .description {
+    font-size: 0.98rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-medium);
+    flex-grow: 1;
+}
+
+.notebook-card .status {
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    align-self: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status.disponivel {
+    background-color: var(--success-color);
+    color: var(--white-color);
+}
+
+.status.alugado {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+
+.notebook-card .details-btn {
+    width: 100%;
+    margin-top: auto;
+    background-color: var(--accent-color); /* Botão de detalhes com cor de acento */
+    border-color: var(--accent-color);
+    color: var(--text-dark);
+}
+.notebook-card .details-btn:hover, .notebook-card .details-btn:focus {
+     background-color: #d89200;
+     border-color: #d89200;
+     color: var(--text-dark);
+}
+
+/* === Seção Como Funciona === */
+.how-it-works-section {
+    background-color: var(--white-color); /* Fundo branco para alternar */
+}
+.how-it-works-section h2 {
+    margin-bottom: 3.5rem;
+}
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 2.5rem;
+    text-align: center;
+}
+
+.step-item {
+    background-color: var(--light-bg-color); /* Fundo claro nos itens */
+    padding: 2.5rem 1.8rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: none; /* Sem sombra por padrão, talvez no hover */
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-medium);
+    border-color: var(--primary-color);
+}
+
+.step-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    display: inline-flex; /* Usar flex para alinhar ícone se necessário */
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(13, 115, 119, 0.1); /* Fundo sutil com cor primária */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.step-item h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+}
+.step-item p {
+     color: var(--text-medium);
+}
+
+/* === Seção Por Que Alugar === */
+.why-rent-section {
+     background-color: var(--light-bg-color); /* Alterna fundo */
+}
+
+.why-rent-section h2 {
+     margin-bottom: 3.5rem;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Itens um pouco maiores */
+    gap: 3rem; /* Mais espaço */
+}
+
+.why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem; /* Mais espaço entre ícone e texto */
+}
+
+.why-item i {
+    font-size: 2rem; /* Ícone maior */
+    color: var(--primary-color);
+    margin-top: 3px;
+    width: 35px;
+    text-align: center;
+    flex-shrink: 0; /* Evita que o ícone encolha */
+}
+
+.why-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: var(--text-dark);
+}
+
+.why-item p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-medium);
+}
+
+/* === Seção Depoimentos === */
+.testimonials-section {
+    background-color: var(--white-color); /* Alterna fundo */
+}
+.testimonials-section h2 {
+    margin-bottom: 3.5rem;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 2.5rem;
+}
+
+.testimonial-card {
+    background-color: var(--light-bg-color); /* Fundo claro */
+    padding: 2.5rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-light);
+    border-left: 6px solid var(--primary-color); /* Borda mais grossa */
+    position: relative;
+    transition: box-shadow var(--transition-speed);
+    border-top: 1px solid var(--border-color); /* Linhas sutis */
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+.testimonial-card:hover {
+     box-shadow: var(--box-shadow-medium);
+}
+
+
+.testimonial-card::before {
+    content: "\f10d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 20px;
+    left: calc(1.5rem + 6px); /* Posição após a borda */
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    opacity: 0.15; /* Mais visível */
+    z-index: 0;
+}
+
+.testimonial-card p {
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    color: var(--text-medium);
+    padding-left: 0; /* Remove padding anterior */
+    position: relative; /* Para garantir que fique sobre as aspas */
+    z-index: 1;
+    font-size: 1.05rem;
+}
+
+.client-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+.client-name::before { /* Adiciona um traço antes do nome */
+    content: "— ";
+}
+
+
+/* === Seção de Contato === */
+.contact-section {
+     background-color: var(--light-bg-color); /* Alterna fundo */
+}
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Dá um pouco mais de espaço ao mapa */
+    gap: 4rem; /* Mais espaço */
+    align-items: flex-start; /* Alinha ao topo */
+}
+
+.contact-info h2 {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+.contact-info p {
+    margin-bottom: 1.5rem;
+    color: var(--text-medium);
+}
+
+.contact-info ul {
+    margin-top: 2rem;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem; /* Texto do contato maior */
+}
+
+.contact-info li i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    width: 30px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.contact-info a {
+    font-weight: 500;
+    word-break: break-word; /* Quebra links longos se necessário */
+}
+.contact-map iframe {
+    box-shadow: var(--box-shadow-medium); /* Sombra mais visível */
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    min-height: 400px; /* Altura mínima */
+}
+
+
+/* === Rodapé === */
+.footer {
+    background-color: var(--dark-bg-color);
+    color: var(--text-light);
+    padding-top: 5rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.footer-about h3 {
+    color: var(--white-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.footer-about p {
+    margin-bottom: 1.8rem;
+    font-size: 1rem;
+    opacity: 0.8; /* Texto um pouco menos opaco */
+}
+
+.social-links a {
+    color: var(--light-bg-color);
+    font-size: 1.6rem; /* Ícones maiores */
+    margin-right: 1.2rem;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+    display: inline-block;
+    opacity: 0.8;
+}
+
+.social-links a:hover, .social-links a:focus {
+    color: var(--primary-color);
+    transform: scale(1.1); /* Efeito de zoom */
+    opacity: 1;
+}
+
+.footer-links h4 {
+    color: var(--white-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.9rem; /* Mais espaçamento */
+}
+
+.footer-links a {
+    color: var(--light-bg-color);
+    font-size: 1rem;
+    opacity: 0.8;
+    transition: all var(--transition-speed);
+    position: relative;
+    padding-left: 0;
+}
+
+.footer-links a:hover, .footer-links a:focus {
+    color: var(--white-color);
+    opacity: 1;
+    padding-left: 10px; /* Desliza texto no hover */
+}
+.footer-links a:hover::before, .footer-links a:focus::before {
+    content: "›"; /* Adiciona indicador no hover */
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #444; /* Linha divisória mais visível */
+    font-size: 0.95rem;
+    color: rgba(248, 248, 248, 0.6); /* Cor mais suave para copyright */
+}
+
+
+/* === Botão Flutuante WhatsApp === */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px; /* Ligeiramente maior */
+    height: 65px;
+    background: linear-gradient(45deg, #25D366, #128C7E); /* Gradiente WhatsApp */
+    color: var(--white-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.8rem; /* Ícone maior */
+    box-shadow: var(--box-shadow-heavy);
+    z-index: 1000;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    animation: pulse-whatsapp 2.5s infinite ease-in-out;
+}
+
+.whatsapp-float:hover, .whatsapp-float:focus {
+    transform: scale(1.1) rotate(10deg); /* Gira um pouco no hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    color: var(--white-color);
+    animation-play-state: paused;
+}
+
+@keyframes pulse-whatsapp {
+    0% { transform: scale(1); box-shadow: var(--box-shadow-heavy); }
+    50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+    100% { transform: scale(1); box-shadow: var(--box-shadow-heavy); }
+}
+
+/* === Modal de Detalhes === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(33, 33, 33, 0.7); /* Fundo mais escuro */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px); /* Efeito de desfoque (funciona em alguns navegadores) */
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--white-color);
+    margin: auto;
+    padding: 2.5rem; /* Mais padding interno */
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-heavy);
+    max-width: 650px;
+    width: 90%;
+    position: relative;
+    animation: fadeInScale 0.4s ease-out;
+}
+
+@keyframes fadeInScale {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-button {
+    color: #999;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--danger-color);
+    transform: rotate(90deg);
+}
+
+.modal-img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.modal-content h3 {
+    margin-bottom: 1.2rem;
+    color: var(--text-dark);
+    text-align: center;
+}
+.modal-content h4 {
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3rem;
+}
+.modal-content #modal-description {
+     margin-bottom: 1.5rem;
+     color: var(--text-medium);
+     line-height: 1.6;
+}
+.modal-content #modal-description strong {
+    color: var(--text-dark);
+}
+
+.modal-prices {
+    margin-bottom: 1.8rem;
+    padding-left: 1rem; /* Leve indentação */
+    list-style: disc; /* Marcadores */
+}
+.modal-prices li {
+    margin-bottom: 0.5rem;
+    color: var(--text-medium);
+}
+.modal-prices li::marker { /* Estiliza o marcador */
+     color: var(--primary-color);
+}
+
+
+.modal-status {
+    font-weight: bold;
+    margin-bottom: 1.8rem;
+    padding: 0.6rem 1.2rem;
+    display: inline-block;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.modal-status.disponivel {
+     background-color: var(--success-color);
+     color: var(--white-color);
+}
+.modal-status.alugado {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+
+.modal-content .btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem; /* Botão maior no modal */
+}
+.modal-content .btn i {
+    margin-right: 0.8rem; /* Mais espaço para ícone */
+}
+
+
+/* === Estilos para Páginas Simples (Sobre, Termos, Privacidade) === */
+.simple-page-section {
+    padding: var(--section-padding);
+    background-color: var(--white-color);
+    min-height: 70vh; /* Garante altura mínima */
+}
+.simple-page-section h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color); /* Título principal com cor primária */
+}
+.simple-page-section h2 {
+    text-align: left; /* Subtítulos alinhados à esquerda */
+    font-size: 1.6rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+.simple-page-section p, .simple-page-section li {
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-medium);
+    font-size: 1.05rem;
+}
+.simple-page-section ul {
+    list-style: disc;
+    padding-left: 2rem; /* Indentação para listas */
+    margin-bottom: 1.5rem;
+}
+.simple-page-section strong {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+.simple-page-section a {
+    font-weight: 500; /* Links um pouco mais destacados */
+}
+
+/* === Estilização Sutil da Barra de Rolagem (WebKit) === */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--light-bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+    transition: background var(--transition-speed);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+
+/* === Responsividade === */
+
+/* Telas Médias (Tablets) */
+@media (max-width: 992px) {
+    :root { --section-padding: 4.5rem 0; }
+    .container { padding: 0 1rem; }
+    .nav-links { gap: 1.5rem; } /* Menos espaço */
+    .hero-section { min-height: auto; padding: 6rem 0;}
+    .notebook-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;}
+    .steps-grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 2rem;}
+    .why-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem;}
+    .testimonial-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;}
+    .contact-container { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-map iframe { min-height: 350px; }
+    .footer-container { gap: 2.5rem; }
+}
+
+/* Telas Pequenas (Móveis) */
+@media (max-width: 768px) {
+    :root { --section-padding: 3.5rem 0; }
+    html { font-size: 15px; /* Reduz base da fonte */ }
+
+    .navbar { position: relative; }
+    .menu-toggle { display: block; }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0; /* Alinha à direita */
+        background-color: var(--white-color);
+        width: 250px; /* Largura fixa */
+        flex-direction: column;
+        box-shadow: var(--box-shadow-medium);
+        padding: 1.5rem;
+        gap: 1.5rem;
+        border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+        border: 1px solid var(--border-color);
+        border-top: none;
+        animation: slideDown 0.3s ease-out;
+    }
+    @keyframes slideDown {
+         from { opacity: 0; transform: translateY(-10px); }
+         to { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-links.active { display: flex; }
+    .nav-links a { width: 100%; text-align: center; padding: 0.8rem 0; }
+    .nav-links a::after { display: none; /* Remove linha do menu mobile */ }
+    .nav-links a:hover, .nav-links a:focus { background-color: var(--light-bg-color); border-radius: var(--border-radius-sm); }
+
+    .hero-section { padding: 5rem 0; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-content .subtitle { font-size: 1.1rem; }
+
+    .notebook-grid,
+    .steps-grid,
+    .why-grid,
+    .testimonial-grid {
+         grid-template-columns: 1fr; /* Uma coluna */
+         gap: 2rem; /* Espaçamento consistente */
+    }
+
+    .footer-container { grid-template-columns: 1fr; text-align: center; }
+    .footer-about, .footer-links { margin-bottom: 2rem; }
+    .social-links { justify-content: center; }
+    .footer-links ul { padding-left: 0; } /* Remove indentação no mobile */
+
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 2.2rem;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .modal-content { padding: 1.5rem; width: 95%; }
+    .modal-img { max-height: 220px; }
+    .simple-page-section { padding: 3.5rem 1rem; } /* Padding lateral na página simples */
+}
